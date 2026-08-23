@@ -1,12 +1,171 @@
 ---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import portrait from '../assets/portrait.jpg';
+import '../styles/home.css';
+
+const essays = (await getCollection('essays')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const description =
+	'Lenny McCline — I lead the data & analysis platform team at Portal, a protein sequencing company. I write about leadership, craft, and learning from people who did great work.';
+
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Leonard McCline',
+	alternateName: 'Lenny McCline',
+	url: 'https://lennymccline.com',
+	jobTitle: 'Engineering lead, data & analysis platform',
+	worksFor: { '@type': 'Organization', name: 'Portal Biotech', url: 'https://www.portalbiotech.com/' },
+	alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of California, Los Angeles' },
+	sameAs: [
+		'https://www.linkedin.com/in/leonard-mccline-700608156/',
+		'https://github.com/lmccline',
+	],
+};
 ---
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Lenny McCline</title>
-	</head>
-	<body>
-		<p>Pipeline check. Design lands next.</p>
-	</body>
-</html>
+
+<Base title="Lenny McCline" description={description}>
+	<script
+		slot="head"
+		type="application/ld+json"
+		set:html={JSON.stringify(personSchema)}
+		is:inline
+	/>
+
+	<main class="home">
+		<div class="home-grid">
+			<div class="home-main">
+				<h1>Hi! I’m Lenny McCline.</h1>
+
+				<div class="intro prose">
+					<p>
+						I am a builder whose <a href="/a-work-of-art">creative mediums</a> span data platforms,
+						biology, AI, biosecurity, business, and startups.
+					</p>
+					<p>
+						I believe effective leadership is built on emotional clarity—my favorite example is <a
+							href="/lincolns-heart">Abraham Lincoln</a
+						>.
+					</p>
+					<p>
+						I love history and <a href="https://fs.blog/start/"
+							>learning from the best that other people have already figured out</a
+						>.
+					</p>
+				</div>
+
+				<hr class="rule" />
+
+				<section class="section">
+					<h2 class="label">Work</h2>
+					<div class="section-body prose">
+						<p>
+							I currently lead a team of software engineers building the data &amp; analysis platform
+							for <a href="https://www.portalbiotech.com/">Portal</a>, a protein sequencing company
+							which I joined as employee ~12 and has since grown to &gt;75 people.
+						</p>
+						<p>
+							Previously, I worked with <a href="https://www.convergentresearch.org/"
+								>Convergent Research</a
+							> on a <a href="https://sequencing-roadmap.org/"
+								>metagenomic sequencing technology roadmap</a
+							> currently used for <a href="https://bluedot.org/courses/biosecurity/3/4"
+								>BlueDot Impact’s Biosecurity course</a
+							>. Before that, I researched pathogen-agnostic sample enrichment for pandemic early
+							warning systems at MIT.
+						</p>
+						<p>
+							I have a degree in Chemical and Biomolecular Engineering from UCLA. I grew up in San
+							Diego, California.
+						</p>
+					</div>
+				</section>
+
+				<hr class="rule" />
+
+				<section class="section section--things">
+					<h2 class="label">Things</h2>
+					<p class="things-lead">Some things I like thinking about:</p>
+					<ul class="things prose">
+						<li>
+							<span
+								><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4114032/">Proteoformics</a>!
+								Humanity is surprisingly bad at measuring the proteins in cells, despite proteins
+								being the central working machinery of biology. If we were better, we might be able
+								to <a href="https://www.nature.com/articles/s41576-025-00915-1"
+									>target drugs at far more nuanced disease states</a
+								>.</span
+							>
+						</li>
+						<li>
+							<span
+								>How do we build a world that is safe from biological threats? What is the set of
+								technological interventions required?</span
+							>
+						</li>
+						<li>
+							<span
+								>How can we massively accelerate R&amp;D in human health &amp; longevity? How do we
+								empower humans &amp; AI to play to their strengths in such a system? What
+								existing/historical patterns can we learn from?</span
+							>
+						</li>
+						<li>
+							<span
+								>How do we generalize cellular dynamics predictions like <a
+									href="https://arcinstitute.org/news/virtual-cell-challenge-2026"
+									>linking genetic perturbations with transcription expression</a
+								>? What are the real degrees of freedom missing from existing training sets?</span
+							>
+						</li>
+						<li>
+							<span
+								>In recent years I’ve gone deep into <a href="https://www.artofaccomplishment.com/"
+									>Art of Accomplishment</a
+								>. It is also my favorite <a href="https://www.artofaccomplishment.com/podcast"
+									>podcast</a
+								>. I am currently taking their year-long Old Students program.</span
+							>
+						</li>
+					</ul>
+				</section>
+
+				<hr class="rule" />
+
+				<section class="section section--writing">
+					<h2 class="label">Writing</h2>
+					<div class="writing">
+						{
+							essays.map((essay) => (
+								<a href={`/${essay.id}`}>
+									<span>{essay.data.title}</span>
+									<time datetime={essay.data.date.toISOString().slice(0, 10)}>
+										{
+											essay.data.date.toLocaleDateString('en-US', {
+												month: 'short',
+												year: 'numeric',
+												timeZone: 'UTC',
+											})
+										}
+									</time>
+								</a>
+							))
+						}
+					</div>
+				</section>
+			</div>
+
+			<aside class="rail">
+				<Image src={portrait} alt="Lenny McCline" width={400} height={600} format="webp" />
+				<div class="contact">
+					<a href="mailto:lenny@lennymccline.com">email</a>
+					<a href="https://www.linkedin.com/in/leonard-mccline-700608156/">linkedin</a>
+				</div>
+			</aside>
+		</div>
+	</main>
+</Base>

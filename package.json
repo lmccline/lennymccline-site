@@ -10,12 +10,19 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "astro build && wrangler deploy"
+    "deploy": "astro build && wrangler deploy",
+    "og": "node scripts/make-og.mjs"
   },
   "dependencies": {
+    "@astrojs/markdown-satteri": "^0.3.7",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/newsreader": "^5.3.0",
     "astro": "^7.2.4"
   },
   "devDependencies": {
+    "image-size": "^2.0.2",
     "wrangler": "^4.125.0"
   }
 }

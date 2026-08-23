@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import '../styles/essay.css';
+
+export async function getStaticPaths() {
+	const essays = await getCollection('essays');
+	return essays.map((essay) => ({ params: { slug: essay.id }, props: { essay } }));
+}
+
+const { essay } = Astro.props;
+const { Content } = await render(essay);
+
+const dateLabel = essay.data.date.toLocaleDateString('en-US', {
+	month: 'short',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
+---
+
+<Base
+	title={`${essay.data.title} — Lenny McCline`}
+	description={essay.data.description}
+	ogType="article"
+>
+	<main class="essay">
+		<div class="essay-inner">
+			<a class="back" href="/">&larr;&nbsp;&nbsp;Main</a>
+
+			<header class="essay-head">
+				<h1>{essay.data.title}</h1>
+				<div class="essay-date">{dateLabel}</div>
+			</header>
+
+			<hr class="rule" />
+
+			<div class="prose">
+				<Content />
+			</div>
+
+			<hr class="rule footer-rule" />
+
+			<a class="back" href="/">&larr;&nbsp;&nbsp;Back home</a>
+		</div>
+	</main>
+</Base>

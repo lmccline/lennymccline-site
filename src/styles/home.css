@@ -1,0 +1,171 @@
+.home {
+	max-width: 940px;
+	margin-inline: auto;
+	padding: 96px 96px 120px;
+	color: var(--ink);
+}
+
+.home-grid {
+	display: grid;
+	grid-template-columns: 1fr 200px;
+	gap: 64px;
+	align-items: start;
+}
+
+.home-main {
+	display: flex;
+	flex-direction: column;
+	gap: 34px;
+}
+
+.home-main h1 {
+	font-size: clamp(30px, 7vw, 34px);
+	font-weight: 400;
+	letter-spacing: -0.01em;
+}
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	font-size: 19px;
+	line-height: 1.62;
+	color: var(--body);
+	text-wrap: pretty;
+}
+
+.intro + .rule {
+	margin-top: 10px;
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.section-body {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	font-size: 18px;
+	line-height: 1.62;
+	color: var(--body);
+	text-wrap: pretty;
+}
+
+/* Things */
+.section--things {
+	gap: 20px;
+}
+
+.things-lead {
+	font-size: 18px;
+	line-height: 1.62;
+	color: var(--body);
+}
+
+.things {
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.things li {
+	display: grid;
+	grid-template-columns: 24px 1fr;
+	font-size: 18px;
+	line-height: 1.6;
+	color: var(--body);
+	text-wrap: pretty;
+}
+
+.things li::before {
+	content: '\2022';
+	color: var(--faint);
+}
+
+/* Writing */
+.section--writing {
+	gap: 16px;
+}
+
+.writing {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.writing a {
+	display: flex;
+	justify-content: space-between;
+	gap: 24px;
+	align-items: baseline;
+	font-size: 18px;
+	color: var(--ink);
+	text-decoration: none;
+	border-bottom: 1px solid var(--rule-light);
+	padding-bottom: 12px;
+	transition: border-color 120ms;
+}
+
+.writing a:hover {
+	border-bottom-color: var(--ink);
+}
+
+.writing time {
+	font-family: var(--mono);
+	font-size: 12px;
+	color: var(--faint);
+	white-space: nowrap;
+}
+
+/* Right rail */
+.rail {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.rail img {
+	width: 200px;
+	height: 266px;
+	object-fit: cover;
+	object-position: 50% 18%;
+}
+
+.contact {
+	display: flex;
+	gap: 16px;
+	font-family: var(--mono);
+	font-size: 11px;
+	letter-spacing: 0.06em;
+	color: var(--muted);
+}
+
+.contact a {
+	color: var(--muted);
+	text-decoration: none;
+	transition: color 120ms;
+}
+
+.contact a:hover {
+	color: var(--ink);
+}
+
+@media (max-width: 900px) {
+	.home {
+		padding: 56px 24px 96px;
+	}
+
+	.home-grid {
+		grid-template-columns: 1fr;
+		gap: 34px;
+	}
+
+	.rail {
+		order: -1;
+	}
+}

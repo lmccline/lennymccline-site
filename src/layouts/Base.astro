@@ -1,0 +1,53 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description: string;
+	ogType?: 'website' | 'article';
+}
+
+const { title, description, ogType = 'website' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og.jpg', Astro.site);
+
+// Cloudflare Web Analytics. Public beacon token, not a secret; absent in dev.
+const beacon = import.meta.env.PUBLIC_CF_BEACON;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="canonical" href={canonical} />
+		<link rel="alternate" type="application/rss+xml" title="Lenny McCline" href="/rss.xml" />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<meta property="og:type" content={ogType} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:site_name" content="Lenny McCline" />
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<slot name="head" />
+	</head>
+	<body>
+		<slot />
+
+		{
+			beacon && (
+				<script
+					is:inline
+					defer
+					src="https://static.cloudflareinsights.com/beacon.min.js"
+					data-cf-beacon={`{"token": "${beacon}"}`}
+				/>
+			)
+		}
+	</body>
+</html>

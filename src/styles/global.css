@@ -1,0 +1,91 @@
+@import '@fontsource-variable/newsreader/wght.css';
+@import '@fontsource-variable/newsreader/wght-italic.css';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
+
+:root {
+	color-scheme: light;
+
+	--bg: #fbfaf7;
+	--ink: #211f1c;
+	--body: #33302c;
+	--muted: #8a857c;
+	--faint: #a8a196;
+	--rule: #e2ded5;
+	--rule-light: #ece8df;
+	--underline: #c0bbb0;
+	--quote-rule: #e0dacd;
+	--quote-ink: #4a463f;
+	--embed-bg: #e8e4da;
+
+	--serif: 'Newsreader Variable', Newsreader, Georgia, 'Times New Roman', serif;
+	--mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--body);
+	font-family: var(--serif);
+	font-synthesis-weight: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+figure,
+blockquote {
+	margin: 0;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* Section labels: Work / Things / Writing */
+.label {
+	font-family: var(--mono);
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+
+.rule {
+	flex: none;
+	height: 1px;
+	margin: 0;
+	background: var(--rule);
+	border: 0;
+}
+
+/* Inline links in prose */
+.prose a,
+a.inline {
+	color: var(--ink);
+	text-decoration: underline;
+	text-decoration-color: var(--underline);
+	text-underline-offset: 3px;
+	transition: text-decoration-color 120ms;
+}
+
+.prose a:hover,
+a.inline:hover {
+	text-decoration-color: var(--ink);
+}
+
+.prose strong {
+	font-weight: 500;
+}
