@@ -8,7 +8,7 @@ description: On Abraham Lincoln, and how a lifetime of carrying his own pain mad
 
 I read Doris Kearns Goodwin's biography of Lincoln, *Team of Rivals*, in November and I keep coming back to it. The book depicts what it actually *felt* like to live through the American Civil War from the perspective of the man at the center of it.
 
-Abraham Lincoln's presidency is among the most revered displays of leadership in human history. What Lincoln pulled off was not simply political, it was [emotional artistry](/a-work-of-art) of the highest order.
+Abraham Lincoln's presidency is among the most revered displays of leadership in human history. What Lincoln pulled off was not simply political, it was [emotional artistry](/a-work-of-art/) of the highest order.
 
 ![The Lincoln Memorial](/img/lincoln-monument.webp "Lincoln Memorial, Washington, D.C., dedicated 1922")
 

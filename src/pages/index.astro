@@ -43,12 +43,12 @@ const personSchema = {
 
 				<div class="intro prose">
 					<p>
-						I am a builder whose <a href="/a-work-of-art">creative mediums</a> span data platforms,
+						I am a builder whose <a href="/a-work-of-art/">creative mediums</a> span data platforms,
 						biology, AI, biosecurity, business, and startups.
 					</p>
 					<p>
 						I believe effective leadership is built on emotional clarity—my favorite example is <a
-							href="/lincolns-heart">Abraham Lincoln</a
+							href="/lincolns-heart/">Abraham Lincoln</a
 						>.
 					</p>
 					<p>
@@ -141,7 +141,7 @@ const personSchema = {
 					<div class="writing">
 						{
 							essays.map((essay) => (
-								<a href={`/${essay.id}`}>
+								<a href={`/${essay.id}/`}>
 									<span>{essay.data.title}</span>
 									<time datetime={essay.data.date.toISOString().slice(0, 10)}>
 										{
