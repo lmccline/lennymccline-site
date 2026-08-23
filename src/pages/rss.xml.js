@@ -13,7 +13,7 @@ export async function GET(context) {
 
 	return rss({
 		title: 'Lenny McCline',
-		description: 'Essays on leadership, craft, and learning from people who did great work.',
+		description: 'I am a builder whose creative mediums span data platforms, biology, AI, biosecurity, business, and startups.',
 		site,
 		items: essays.map((essay) => ({
 			title: essay.data.title,
