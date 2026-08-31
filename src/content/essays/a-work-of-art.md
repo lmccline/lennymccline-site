@@ -1,7 +1,7 @@
 ---
-title: A work of art
+title: A Work of Art
 date: 2024-02-16
-description: Glenn Gould was a Canadian pianist known for vibrant, innovative reinterpretations of classical Bach.
+summary: Glenn Gould, Steve Jobs, and an exploration on work as creative expression
 ---
 
 ![Glenn Gould at the piano](/img/gould.webp)

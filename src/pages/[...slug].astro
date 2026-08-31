@@ -20,7 +20,7 @@ const dateLabel = essay.data.date.toLocaleDateString('en-US', {
 
 <Base
 	title={`${essay.data.title} — Lenny McCline`}
-	description={essay.data.description}
+	description={essay.data.summary}
 	ogType="article"
 >
 	<main class="essay">
@@ -29,6 +29,7 @@ const dateLabel = essay.data.date.toLocaleDateString('en-US', {
 
 			<header class="essay-head">
 				<h1>{essay.data.title}</h1>
+				<p class="dek">{essay.data.summary}</p>
 				<div class="essay-date">{dateLabel}</div>
 			</header>
 

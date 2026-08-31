@@ -1,7 +1,7 @@
 ---
-title: Lincoln’s heart
+title: Lincoln’s Heart
 date: 2026-01-15
-description: I read Doris Kearns Goodwin's biography of Lincoln, Team of Rivals, in November and I keep coming back to it.
+summary: Leadership when uncomfortable emotional experiences are welcomed
 ---
 
 <p class="lede">I have gleaned much wisdom from the late great <a href="https://fs.blog/intellectual-giants/charlie-munger/">Charlie Munger</a>, and one such nugget is: “There is no love that’s so right as admiration-based love, and that love should include the instructive dead.” This essay comes from that place.</p>

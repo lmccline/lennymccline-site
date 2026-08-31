@@ -39,6 +39,13 @@
 	line-height: 1.15;
 }
 
+.dek {
+	font-size: 21px;
+	line-height: 1.5;
+	color: var(--quote-ink);
+	text-wrap: pretty;
+}
+
 .essay-date {
 	font-family: var(--mono);
 	font-size: 12px;

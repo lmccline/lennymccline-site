@@ -18,7 +18,7 @@ export async function GET(context) {
 		items: essays.map((essay) => ({
 			title: essay.data.title,
 			pubDate: essay.data.date,
-			description: essay.data.description,
+			description: essay.data.summary,
 			link: `/${essay.id}/`,
 			// Feed readers need absolute URLs; the essays use site-root paths.
 			content: sanitizeHtml(parser.render(essay.body), {
